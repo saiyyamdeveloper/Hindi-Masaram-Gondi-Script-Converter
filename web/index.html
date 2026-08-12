@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>मसराम गोंडी · देवनागरी कन्वर्टर</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <img src="img/hero-gond.jpg" alt="गोंड चित्रकला — वृक्ष, मोर, नदी" />
+      <div class="hero-veil"></div>
+      <div class="hero-copy">
+        <p class="kicker">Munshi Mangal Singh Masaram · 1918 · U+11D00</p>
+        <h1>
+          देवनागरी → मसराम गोंडी
+          <span class="gondi">𑴤𑴫𑴦𑴱𑴤 𑴎𑴽𑵀𑴘𑴳</span>
+        </h1>
+        <p>हिन्दी टाइप करो — ७५ अक्षरों वाली मसराम गोंडी लिपि में तुरंत लिखो। यहीं कुंजीपटल, शब्दकोश और FlorisBoard लेआउट भी है।</p>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="active" data-tab="convert">लिखो</button>
+      <button data-tab="keyboard">कुंजी · ७५</button>
+      <button data-tab="dict">शब्दकोश</button>
+      <button data-tab="map">मानचित्र</button>
+    </nav>
+
+    <section id="panel-convert" class="panel active">
+      <div class="grid-2">
+        <div class="card">
+          <label class="field" id="lbl-in">हिन्दी / देवनागरी लिखें</label>
+          <textarea id="hi-in" lang="hi" placeholder="यहाँ लिखें… नमस्ते भारत">गोंडी मसराम लिपि</textarea>
+          <div class="chips" id="examples">
+            <button class="chip" data-w="मसराम">मसराम</button>
+            <button class="chip" data-w="गोंडी">गोंडी</button>
+            <button class="chip" data-w="नमस्ते">नमस्ते</button>
+            <button class="chip" data-w="भारत">भारत</button>
+            <button class="chip" data-w="हिन्दी">हिन्दी</button>
+            <button class="chip" data-w="जय हिन्द">जय हिन्द</button>
+            <button class="chip" data-w="क्षेत्र">क्षेत्र</button>
+            <button class="chip" data-w="पानी">पानी</button>
+            <button class="chip" data-w="घर">घर</button>
+            <button class="chip" data-w="नाम">नाम</button>
+            <button class="chip" data-w="दिन">दिन</button>
+          </div>
+        </div>
+        <div class="card">
+          <label class="field" id="lbl-out">मसराम गोंडी</label>
+          <div class="outbox" id="gon-out" lang="gon"></div>
+          <div class="row-actions">
+            <button class="btn primary" id="btn-copy">कॉपी</button>
+            <button class="btn ghost" id="btn-swap">⇄ उलटो</button>
+            <button class="btn ghost" id="btn-clear">साफ़</button>
+            <label class="toggle">
+              <input type="checkbox" id="smart-ra" checked />
+              स्मार्ट र (र् / ्र)
+            </label>
+            <span class="hint" id="dir-toggle">देवनागरी → मसराम</span>
+          </div>
+          <p class="hint">नमस्ते = न म स् त े → विराम सहित 𑴟𑴤𑴫𑵅𑴛𑴺 · क्षेत्र = 𑴮𑴺𑴰</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-keyboard" class="panel">
+      <div class="card">
+        <label class="field">मसराम गोंडी कुंजीपटल — सारे ७५ अक्षर</label>
+        <textarea class="kb-out" id="kb-out" lang="gon" placeholder="𑴀𑴬𑴱𑴦 𑴌𑴲𑴧𑴲𑴌 𑴘𑴱𑴥𑴽…"></textarea>
+        <div class="row-actions">
+          <button class="btn primary" id="kb-copy">कॉपी</button>
+          <button class="btn ghost" id="kb-to-hi">देवनागरी में देखो</button>
+          <button class="btn ghost" id="kb-clear">साफ़</button>
+        </div>
+        <div id="kb-host"></div>
+      </div>
+    </section>
+
+    <section id="panel-dict" class="panel">
+      <div class="card">
+        <label class="field">हिन्दी ↔ गोंडी रोज़मर्रा शब्द</label>
+        <input class="search" id="q" placeholder="खोजो — पानी, घर, नन्ना, water…" />
+        <div class="filters" id="filters"></div>
+        <p class="hint"><span id="dict-count"></span> · कार्ड दबाओ = गोंडी कॉपी। गोंडी बोलियाँ अलग-अलग हैं — ये प्रचलित रूप हैं, एक आधिकारिक मानक नहीं।</p>
+        <div class="dict-list" id="dict-list"></div>
+      </div>
+    </section>
+
+    <section id="panel-map" class="panel">
+      <div class="card">
+        <p class="note">दोनों लिपियाँ ब्राह्मी-शैली की अबुगिदा हैं, इसलिए १:१ ध्वनि-मानचित्र बनता है। मसराम में विराम (𑵅) युक्ताक्षर बनाता है, हलंता (𑵄) सिर्फ़ स्वर मारता है। र् → रेफ़ 𑵆, ्र → र-कार 𑵇।</p>
+      </div>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="card">
+          <h3>स्वर</h3>
+          <div class="table-wrap"><table class="map"><thead><tr><th>देवनागरी</th><th>गोंडी</th><th>कोड</th></tr></thead><tbody id="map-vowels"></tbody></table></div>
+        </div>
+        <div class="card">
+          <h3>मात्रा / चिह्न / संयुक्त</h3>
+          <div class="table-wrap"><table class="map"><thead><tr><th>देवनागरी</th><th>गोंडी</th><th>कोड</th></tr></thead><tbody id="map-matra"></tbody></table></div>
+          <div class="table-wrap" style="margin-top:10px"><table class="map"><thead><tr><th>देवनागरी</th><th>गोंडी</th><th>कोड</th></tr></thead><tbody id="map-signs"></tbody></table></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h3>व्यंजन</h3>
+        <div class="table-wrap"><table class="map"><thead><tr><th>देवनागरी</th><th>गोंडी</th><th>कोड</th></tr></thead><tbody id="map-cons"></tbody></table></div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h3>अंक</h3>
+        <div class="table-wrap"><table class="map"><thead><tr><th>देवनागरी</th><th>गोंडी</th><th>कोड</th></tr></thead><tbody id="map-digits"></tbody></table></div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="gondi">𑴎𑴽𑵀𑴘𑴳 𑴤𑴫𑴦𑴱𑴤</span>
+      फ़ॉन्ट: Noto Sans Masaram Gondi (OFL) · यूनिकोड ब्लॉक U+11D00–U+11D5F · ७५ अक्षर
+    </footer>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="js/converter.js"></script>
+  <script src="js/dictionary.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

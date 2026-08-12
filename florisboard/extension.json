@@ -1,0 +1,28 @@
+{
+  "$": "ime.extension.keyboard",
+  "meta": {
+    "id": "org.masaram.gondi",
+    "version": "1.0.0",
+    "title": "Masaram Gondi",
+    "description": "Complete 75-character Masaram Gondi layouts (phonetic + InScript) for writing Gondi. Pair with Noto Sans Masaram Gondi.",
+    "keywords": ["gondi", "masaram", "gondi lipi", "hindi", "tribal", "india"],
+    "maintainers": ["Masaram Gondi Keyboard"],
+    "license": "apache-2.0"
+  },
+  "layouts": {
+    "characters": [
+      {
+        "id": "masaram_gondi",
+        "label": "𑴤𑴫𑴦𑴱𑴤 𑴎𑴽𑵀𑴘𑴳 (Phonetic)",
+        "authors": ["Masaram Gondi Keyboard"],
+        "direction": "ltr"
+      },
+      {
+        "id": "masaram_gondi_inscript",
+        "label": "𑴤𑴫𑴦𑴱𑴤 𑴎𑴽𑵀𑴘𑴳 (InScript)",
+        "authors": ["Masaram Gondi Keyboard"],
+        "direction": "ltr"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+name: Converter tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Golden mapping tests
+        run: python3 converter/python/devanagari_to_masaram_gondi.py --test
+      - name: Rebuild dictionary
+        run: python3 dictionary/build_dictionary.py
+      - name: Validate JSON
+        run: |
+          python3 -c "import json,pathlib; \
+          [json.loads(p.read_text()) for p in pathlib.Path('florisboard').rglob('*.json')]; \
+          json.loads(pathlib.Path('converter/mapping.json').read_text()); \
+          json.loads(pathlib.Path('dictionary/gondi_hindi_dictionary.json').read_text()); \
+          print('json ok')"

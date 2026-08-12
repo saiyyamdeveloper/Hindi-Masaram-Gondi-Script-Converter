@@ -1,0 +1,96 @@
+{
+  "name": "Masaram Gondi — complete 75 characters",
+  "block": "U+11D00–U+11D5F",
+  "count": 75,
+  "groups": {
+    "vowels_independent": [
+      { "cp": "11D00", "dec": 72448, "gondi": "𑴀", "name": "A", "deva": "अ" },
+      { "cp": "11D01", "dec": 72449, "gondi": "𑴁", "name": "AA", "deva": "आ" },
+      { "cp": "11D02", "dec": 72450, "gondi": "𑴂", "name": "I", "deva": "इ" },
+      { "cp": "11D03", "dec": 72451, "gondi": "𑴃", "name": "II", "deva": "ई" },
+      { "cp": "11D04", "dec": 72452, "gondi": "𑴄", "name": "U", "deva": "उ" },
+      { "cp": "11D05", "dec": 72453, "gondi": "𑴅", "name": "UU", "deva": "ऊ" },
+      { "cp": "11D06", "dec": 72454, "gondi": "𑴆", "name": "E", "deva": "ए" },
+      { "cp": "11D08", "dec": 72456, "gondi": "𑴈", "name": "AI", "deva": "ऐ" },
+      { "cp": "11D09", "dec": 72457, "gondi": "𑴉", "name": "O", "deva": "ओ" },
+      { "cp": "11D0B", "dec": 72459, "gondi": "𑴋", "name": "AU", "deva": "औ" }
+    ],
+    "consonants": [
+      { "cp": "11D0C", "dec": 72460, "gondi": "𑴌", "name": "KA", "deva": "क" },
+      { "cp": "11D0D", "dec": 72461, "gondi": "𑴍", "name": "KHA", "deva": "ख" },
+      { "cp": "11D0E", "dec": 72462, "gondi": "𑴎", "name": "GA", "deva": "ग" },
+      { "cp": "11D0F", "dec": 72463, "gondi": "𑴏", "name": "GHA", "deva": "घ" },
+      { "cp": "11D10", "dec": 72464, "gondi": "𑴐", "name": "NGA", "deva": "ङ" },
+      { "cp": "11D11", "dec": 72465, "gondi": "𑴑", "name": "CA", "deva": "च" },
+      { "cp": "11D12", "dec": 72466, "gondi": "𑴒", "name": "CHA", "deva": "छ" },
+      { "cp": "11D13", "dec": 72467, "gondi": "𑴓", "name": "JA", "deva": "ज" },
+      { "cp": "11D14", "dec": 72468, "gondi": "𑴔", "name": "JHA", "deva": "झ" },
+      { "cp": "11D15", "dec": 72469, "gondi": "𑴕", "name": "NYA", "deva": "ञ" },
+      { "cp": "11D16", "dec": 72470, "gondi": "𑴖", "name": "TTA", "deva": "ट" },
+      { "cp": "11D17", "dec": 72471, "gondi": "𑴗", "name": "TTHA", "deva": "ठ" },
+      { "cp": "11D18", "dec": 72472, "gondi": "𑴘", "name": "DDA", "deva": "ड" },
+      { "cp": "11D19", "dec": 72473, "gondi": "𑴙", "name": "DDHA", "deva": "ढ" },
+      { "cp": "11D1A", "dec": 72474, "gondi": "𑴚", "name": "NNA", "deva": "ण" },
+      { "cp": "11D1B", "dec": 72475, "gondi": "𑴛", "name": "TA", "deva": "त" },
+      { "cp": "11D1C", "dec": 72476, "gondi": "𑴜", "name": "THA", "deva": "थ" },
+      { "cp": "11D1D", "dec": 72477, "gondi": "𑴝", "name": "DA", "deva": "द" },
+      { "cp": "11D1E", "dec": 72478, "gondi": "𑴞", "name": "DHA", "deva": "ध" },
+      { "cp": "11D1F", "dec": 72479, "gondi": "𑴟", "name": "NA", "deva": "न" },
+      { "cp": "11D20", "dec": 72480, "gondi": "𑴠", "name": "PA", "deva": "प" },
+      { "cp": "11D21", "dec": 72481, "gondi": "𑴡", "name": "PHA", "deva": "फ" },
+      { "cp": "11D22", "dec": 72482, "gondi": "𑴢", "name": "BA", "deva": "ब" },
+      { "cp": "11D23", "dec": 72483, "gondi": "𑴣", "name": "BHA", "deva": "भ" },
+      { "cp": "11D24", "dec": 72484, "gondi": "𑴤", "name": "MA", "deva": "म" },
+      { "cp": "11D25", "dec": 72485, "gondi": "𑴥", "name": "YA", "deva": "य" },
+      { "cp": "11D26", "dec": 72486, "gondi": "𑴦", "name": "RA", "deva": "र" },
+      { "cp": "11D27", "dec": 72487, "gondi": "𑴧", "name": "LA", "deva": "ल" },
+      { "cp": "11D28", "dec": 72488, "gondi": "𑴨", "name": "VA", "deva": "व" },
+      { "cp": "11D29", "dec": 72489, "gondi": "𑴩", "name": "SHA", "deva": "श" },
+      { "cp": "11D2A", "dec": 72490, "gondi": "𑴪", "name": "SSA", "deva": "ष" },
+      { "cp": "11D2B", "dec": 72491, "gondi": "𑴫", "name": "SA", "deva": "स" },
+      { "cp": "11D2C", "dec": 72492, "gondi": "𑴬", "name": "HA", "deva": "ह" },
+      { "cp": "11D2D", "dec": 72493, "gondi": "𑴭", "name": "LLA", "deva": "ळ" }
+    ],
+    "conjuncts": [
+      { "cp": "11D2E", "dec": 72494, "gondi": "𑴮", "name": "KSSA", "deva": "क्ष" },
+      { "cp": "11D2F", "dec": 72495, "gondi": "𑴯", "name": "JNYA", "deva": "ज्ञ" },
+      { "cp": "11D30", "dec": 72496, "gondi": "𑴰", "name": "TRA", "deva": "त्र" }
+    ],
+    "vowel_signs": [
+      { "cp": "11D31", "dec": 72497, "gondi": "𑴱", "name": "SIGN AA", "deva": "ा" },
+      { "cp": "11D32", "dec": 72498, "gondi": "𑴲", "name": "SIGN I", "deva": "ि" },
+      { "cp": "11D33", "dec": 72499, "gondi": "𑴳", "name": "SIGN II", "deva": "ी" },
+      { "cp": "11D34", "dec": 72500, "gondi": "𑴴", "name": "SIGN U", "deva": "ु" },
+      { "cp": "11D35", "dec": 72501, "gondi": "𑴵", "name": "SIGN UU", "deva": "ू" },
+      { "cp": "11D36", "dec": 72502, "gondi": "𑴶", "name": "SIGN VOCALIC R", "deva": "ृ" },
+      { "cp": "11D3A", "dec": 72506, "gondi": "𑴺", "name": "SIGN E", "deva": "े" },
+      { "cp": "11D3C", "dec": 72508, "gondi": "𑴼", "name": "SIGN AI", "deva": "ै" },
+      { "cp": "11D3D", "dec": 72509, "gondi": "𑴽", "name": "SIGN O", "deva": "ो" },
+      { "cp": "11D3F", "dec": 72511, "gondi": "𑴿", "name": "SIGN AU", "deva": "ौ" }
+    ],
+    "signs": [
+      { "cp": "11D40", "dec": 72512, "gondi": "𑵀", "name": "ANUSVARA", "deva": "ं" },
+      { "cp": "11D41", "dec": 72513, "gondi": "𑵁", "name": "VISARGA", "deva": "ः" },
+      { "cp": "11D42", "dec": 72514, "gondi": "𑵂", "name": "NUKTA", "deva": "़" },
+      { "cp": "11D43", "dec": 72515, "gondi": "𑵃", "name": "CANDRA", "deva": "ॅ/ॉ" },
+      { "cp": "11D44", "dec": 72516, "gondi": "𑵄", "name": "HALANTA", "deva": "् (vowel killer)" },
+      { "cp": "11D45", "dec": 72517, "gondi": "𑵅", "name": "VIRAMA", "deva": "् (conjunct)" }
+    ],
+    "cluster_forms": [
+      { "cp": "11D46", "dec": 72518, "gondi": "𑵆", "name": "REPHA", "deva": "र् (cluster-initial ra)" },
+      { "cp": "11D47", "dec": 72519, "gondi": "𑵇", "name": "RA-KARA", "deva": "्र (cluster-final ra)" }
+    ],
+    "digits": [
+      { "cp": "11D50", "dec": 72528, "gondi": "𑵐", "name": "ZERO", "deva": "०" },
+      { "cp": "11D51", "dec": 72529, "gondi": "𑵑", "name": "ONE", "deva": "१" },
+      { "cp": "11D52", "dec": 72530, "gondi": "𑵒", "name": "TWO", "deva": "२" },
+      { "cp": "11D53", "dec": 72531, "gondi": "𑵓", "name": "THREE", "deva": "३" },
+      { "cp": "11D54", "dec": 72532, "gondi": "𑵔", "name": "FOUR", "deva": "४" },
+      { "cp": "11D55", "dec": 72533, "gondi": "𑵕", "name": "FIVE", "deva": "५" },
+      { "cp": "11D56", "dec": 72534, "gondi": "𑵖", "name": "SIX", "deva": "६" },
+      { "cp": "11D57", "dec": 72535, "gondi": "𑵗", "name": "SEVEN", "deva": "७" },
+      { "cp": "11D58", "dec": 72536, "gondi": "𑵘", "name": "EIGHT", "deva": "८" },
+      { "cp": "11D59", "dec": 72537, "gondi": "𑵙", "name": "NINE", "deva": "९" }
+    ]
+  }
+}
