@@ -1,12 +1,13 @@
 # देवनागरी → मसराम गोंडी
 
-[![Converter tests](https://github.com/USERNAME/masaram-gondi/actions/workflows/test.yml/badge.svg)](https://github.com/USERNAME/masaram-gondi/actions/workflows/test.yml)
-[![Pages](https://github.com/USERNAME/masaram-gondi/actions/workflows/pages.yml/badge.svg)](https://github.com/USERNAME/masaram-gondi/actions/workflows/pages.yml)
+[![Converter tests](https://github.com/Rajarepo001/masaram-gondi/actions/workflows/test.yml/badge.svg)](https://github.com/Rajarepo001/masaram-gondi/actions/workflows/test.yml)
+[![Pages](https://github.com/Rajarepo001/masaram-gondi/actions/workflows/pages.yml/badge.svg)](https://github.com/Rajarepo001/masaram-gondi/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d4a017.svg)](LICENSE)
 
 Munshi Mangal Singh Masaram (1918) ki lipi. Unicode block **U+11D00–U+11D5F** — **75 characters**.
 
-**Live app:** [https://USERNAME.github.io/masaram-gondi/](https://USERNAME.github.io/masaram-gondi/)
+**Live app:** [https://rajarepo001.github.io/masaram-gondi/](https://rajarepo001.github.io/masaram-gondi/)
+**Source:** [github.com/Rajarepo001/masaram-gondi](https://github.com/Rajarepo001/masaram-gondi)
 
 Hindi type karo — Masaram Gondi nikalta hai. Saath mein 75-key keyboard, FlorisBoard/HeliBoard layouts, Kotlin IME converter, aur Hindi–Gondi dictionary.
 
