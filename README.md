@@ -1,3 +1,6 @@
+## Hindi → Masaram Gondi Converter
+
+![Masaram Gondi Hindi Converter](masaram-gondi-converter.jpg)
 # देवनागरी → मसराम गोंडी
 
 [![Converter tests](https://github.com/aimanage750/masaram-gondi/actions/workflows/test.yml/badge.svg)](https://github.com/aimanage750/masaram-gondi/actions/workflows/test.yml)
