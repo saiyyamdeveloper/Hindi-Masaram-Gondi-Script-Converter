@@ -1,4 +1,4 @@
-## Hindi → Masaram Gondi Converter
+## Hindi → Masaram Gondi Script Converter
 
 ![Masaram Gondi Hindi Converter](masaram-gondi-converter.jpg)
 # देवनागरी → मसराम गोंडी
