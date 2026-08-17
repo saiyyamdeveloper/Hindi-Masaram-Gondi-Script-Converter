@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Masaram Gondi — Android Guide</title>
+<style>
+  @font-face { font-family:'Gondi'; src: url('fonts/NotoSansMasaramGondi-Regular.ttf'); }
+  :root{ --bg:#fefaf0; --card:#ffffff; --accent:#8d2d00; --accent2:#c5520a; --muted:#6b5a45; --line:#f1debe; --gondi:'Gondi', serif; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:#2b1e12;font-family:system-ui,-apple-system,'Noto Sans Devanagari','Segoe UI',Roboto,Arial,sans-serif;line-height:1.6}
+  .wrap{max-width:980px;margin:0 auto;padding:0 18px 60px}
+  header.hero{position:relative;overflow:hidden;border-radius:20px;margin:18px 0 18px;background:#1a1108;color:#fff}
+  header.hero img{width:100%;height:320px;object-fit:cover;opacity:.92;display:block}
+  .hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%, rgba(25,12,0,.78) 72%, rgba(18,8,0,.92) 100%)}
+  .hero-copy{position:absolute;bottom:0;left:0;right:0;padding:22px 22px 20px}
+  .kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.92;margin:0 0 6px}
+  .hero-copy h1{margin:0 0 8px;font-size:2.1rem;line-height:1.1}
+  .hero-copy h1 span.gondi{font-family:var(--gondi);font-weight:400;display:block;font-size:1.9rem;opacity:.96;margin-top:4px}
+  .hero-copy p{max-width:680px;margin:0;font-size:.98rem;opacity:.94}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);color:#fff;padding:6px 12px;border-radius:999px;font-size:.82rem;backdrop-filter:blur(4px)}
+  .tabs{display:flex;gap:8px;margin:16px 0}
+  .tabs button{flex:1;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;font-weight:700;cursor:pointer;font-size:.96rem}
+  .tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .panel{display:none}
+  .panel.active{display:block}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px;box-shadow:0 4px 20px rgba(120,70,10,.07);margin-bottom:14px}
+  .card h2{margin:0 0 8px;font-size:1.28rem;color:var(--accent)}
+  .card h3{margin:18px 0 8px;font-size:1.05rem;color:#3d2a16}
+  .card h3:first-child{margin-top:0}
+  .badge{display:inline-block;background:#fff3e0;border:1px solid #ffd9a0;color:#7a3b00;padding:3px 8px;border-radius:999px;font-size:.76rem;font-weight:700}
+  .steps{counter-reset:step;list-style:none;padding:0;margin:10px 0}
+  .steps li{position:relative;padding:12px 14px 12px 54px;border:1px solid var(--line);border-radius:12px;margin:10px 0;background:#fffef8}
+  .steps li::before{counter-increment:step;content:counter(step);position:absolute;left:12px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.9rem}
+  .steps li strong{display:block;color:var(--accent)}
+  .hint{font-size:.86rem;color:var(--muted);background:#fff8e7;border:1px dashed #f0d6a8;padding:10px 12px;border-radius:10px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr} .hero-copy h1{font-size:1.55rem}}
+  pre{margin:10px 0;background:#1e1308;color:#ffe9c7;border-radius:12px;padding:14px 14px;overflow:auto;font-size:.84rem;line-height:1.5;border:1px solid #3a220e}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .btn{appearance:none;border:none;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--accent)}
+  .kbd{font-family:var(--gondi);font-size:1.35rem;background:#fff;border:1px solid var(--line);padding:6px 10px;border-radius:8px;display:inline-block}
+  table.map{width:100%;border-collapse:collapse;font-size:.88rem}
+  table.map th{ text-align:left;padding:8px 8px;border-bottom:2px solid var(--line);color:var(--muted);font-weight:700}
+  table.map td{padding:8px 8px;border-bottom:1px solid #f3e2c2}
+  .gondi{font-family:var(--gondi)}
+  .warn{background:#fff3e8;border-left:4px solid var(--accent2);padding:10px 12px;border-radius:8px}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+  .toc a{font-size:.84rem;color:var(--accent);text-decoration:none;border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <img src="img/hero-gond.jpg" alt="Gond art">
+    <div class="hero-veil"></div>
+    <div class="hero-copy">
+      <p class="kicker">HINDI → MASARAM GONDI · ANDROID GUIDE · U+11D00 · 75 अक्षर</p>
+      <h1>Android पर मसराम गोंडी टाइप करो <span class="gondi">𑴤𑴫𑴦𑴱𑴤 𑴎𑴽𑵀𑴘𑴳 — Android कुंजीपटल</span></h1>
+      <p>Munshi Mangal Singh Masaram (1918) की लिपि। दो रास्ते — <b>सीधे गोंडी टाइप</b> (HeliBoard/FlorisBoard layout) या <b>हिन्दी टाइप → ऑटो-गोंडी</b> (Kotlin IME)। फ़ॉन्ट के बिना □ दिखेंगे।</p>
+      <div class="chips">
+        <span class="chip">75 अक्षर · U+11D00–U+11D5F</span>
+        <span class="chip">Phonetic + InScript</span>
+        <span class="chip">Noto Sans Masaram Gondi</span>
+        <span class="chip">Repha 𑵆 · Ra-kara 𑵇 · Virama 𑵅</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="toc">
+    <a href="#optA">A · सीधे गोंडी टाइप (No-code)</a>
+    <a href="#optB">B · हिन्दी → गोंडी ऑटो (Developer)</a>
+    <a href="#font">फ़ॉन्ट कैसे लगाएँ</a>
+    <a href="#troubleshoot">समस्या हल</a>
+  </div>
+
+  <nav class="tabs">
+    <button class="active" data-tab="A">A · सीधे गोंडी टाइप ★ आसान</button>
+    <button data-tab="B">B · हिन्दी → गोंडी ऑटो · Kotlin</button>
+  </nav>
+
+  <!-- ===================== PANEL A ===================== -->
+  <section id="panel-A" class="panel active">
+    <div class="card">
+      <h2>Option A — बिना कोडिंग, तुरंत गोंडी टाइप <span class="badge">Recommended · 5 मिनट</span></h2>
+      <p>HeliBoard (या FlorisBoard) में तैयार <code>masaram_gondi.json</code> लेआउट import करो — सारे 75 अक्षर मिलेंगे। यह Option फोन पर <b>सीधे 𑴌 𑴟 𑴤</b> की तरह टाइप करने के लिए है।</p>
+
+      <div class="grid2">
+        <div>
+          <h3>📦 क्या चाहिए</h3>
+          <ul>
+            <li><b>HeliBoard</b> — Play Store / F-Droid से (FlorisBoard v0.4 पर extension partial है, v0.5 तक HeliBoard बेहतर)</li>
+            <li><b>Noto Sans Masaram Gondi</b> — <code>web/fonts/NotoSansMasaramGondi-Regular.ttf</code> (SIL OFL)</li>
+            <li>इस repo के 2 layouts: <code>masaram_gondi.json</code> (Phonetic) + <code>masaram_gondi_inscript.json</code></li>
+          </ul>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+            <a class="btn primary" href="masaram-gondi-florisboard-v1.0.0.zip" download>⬇ Extension ZIP (HeliBoard)</a>
+            <a class="btn ghost" href="fonts/NotoSansMasaramGondi-Regular.ttf" download>⬇ Gondi Font TTF</a>
+          </div>
+          <p class="hint">ZIP में: <code>extension.json</code> + <code>layouts/characters/masaram_gondi*.json</code> — यही HeliBoard का extension format है।</p>
+        </div>
+        <div class="hint" style="font-size:.92rem">
+          <b>Phonetic vs InScript — कौन सा लूँ?</b><br>
+          <div style="margin:8px 0"><b>Phonetic</b> — हिन्दी QWERTY जैसा, <code>क → 𑴌, म → 𑴤</code> — हिन्दी टाइपिस्ट के लिये।</div>
+          <div><b>InScript</b> — सरकारी InScript लेआउट की muscle-memory — भौतिक कीबोर्ड वालों के लिये।</div>
+          <div style="margin-top:10px" class="kbd">𑴤𑴫𑴦𑴱𑴤 𑴎𑴽𑵀𑴘𑴳</div>
+          <div style="margin-top:6px;color:var(--muted);font-size:.82rem">मसराम · गोंडी — ऊपर direct Gondi keys का आउटपुट</div>
+        </div>
+      </div>
+
+      <h3>Step-by-step — HeliBoard पर</h3>
+      <ol class="steps">
+        <li><strong>1 · HeliBoard install करो</strong>
+          Play Store पर “HeliBoard” खोजो या F-Droid से <code>heliboard-*.apk</code> लो। Install के बाद <em>Settings → System → Languages & input → On-screen keyboard</em> में HeliBoard enable करो और default बनाओ।
+        </li>
+        <li><strong>2 · फ़ॉन्ट install करो (बहुत ज़रूरी)</strong>
+          <code>NotoSansMasaramGondi-Regular.ttf</code> डाउनलोड करो। Android 12+ पर font install करने के लिये:
+          <br>• File Manager में TTF खोलो → Install, या
+          <br>• <em>Settings → Display → Font</em> में add करो (OEM पर अलग हो सकता है), या
+          <br>• सबसे आसान — इस Gondi font को HeliBoard/अपने App में bundle कर दो (Option B देखो)।
+          <br><span style="color:#9a4a00">बिना फ़ॉन्ट के गोंडी बॉक्स □ दिखेगी — converter सही है, सिर्फ़ display missing है।</span>
+        </li>
+        <li><strong>3 · Extension import करो</strong>
+          HeliBoard में: <em>Settings → Languages & layouts → Add keyboard → Import</em> → यहाँ से <code>masaram-gondi-florisboard-v1.0.0.zip</code> चुनो।
+          <br>या manual: <em>Settings → Advanced → Custom layout → Paste JSON</em> → <code>florisboard/layouts/characters/masaram_gondi.json</code> की पूरी content paste करो।
+          <br>दोनों layouts अलग-अलग दिखेंगे:
+          <br>• <code>𑴤𑴫𑴦𑴱𑴤 𑴎𑴽𑵀𑴘𑴳 (Phonetic)</code>
+          <br>• <code>𑴤𑴫𑴦𑴱𑴤 𑴎𑴽𑵀𑴘𑴳 (InScript)</code>
+        </li>
+        <li><strong>4 · भाषा enable करो</strong>
+          HeliBoard → <em>Languages → Masaram Gondi</em> enable करो। Globe 🌐 से कीबोर्ड बदल सकोगे। Keyboard पर अब 75 अक्षर दिखेंगे।
+        </li>
+        <li><strong>5 · टाइप करो — Shift & Long-press</strong>
+          हर key: <code>lower</code> = normal, <code>upper</code> = Shift, popup = long-press।
+          <div style="margin-top:8px">
+            <table class="map">
+              <tr><th>Gondi</th><th>मतलब</th><th>कब Use</th></tr>
+              <tr><td class="gondi">𑵅</td><td>Virama (11D45)</td><td>युक्ताक्षर बनाओ — <code>स् + त → स्त</code> नमस्ते</td></tr>
+              <tr><td class="gondi">𑵄</td><td>Halanta (11D44)</td><td>शब्द-अंत पर स्वर मारो — “हलंत”</td></tr>
+              <tr><td class="gondi">𑵆</td><td>Repha</td><td>र् + C — <code>कर्म → 𑴌𑵆𑴤</code></td></tr>
+              <tr><td class="gondi">𑵇</td><td>Ra-kara</td><td>C + ्र — <code>क्रम → 𑴌𑵇𑴤</code></td></tr>
+              <tr><td class="gondi">𑴮 𑴯 𑴰</td><td>क्ष ज्ञ त्र</td><td>precomposed — क्षेत्र → 𑴮𑴺𑴰</td></tr>
+              <tr><td class="gondi">𑵀 𑵁 𑵂 𑵃</td><td>ं ः ़ ॅ</td><td>anusvara/visarga/nukta/candra</td></tr>
+            </table>
+          </div>
+        </li>
+      </ol>
+
+      <div class="warn">
+        <b>FlorisBoard वालों के लिये नोट:</b> v0.4 में extensions अभी partial हैं। तब तक या तो source tree में <code>org.florisboard.layouts/layouts/characters/</code> में दोनों JSON डाल कर build करो, या HeliBoard use करो (recommended)। v0.5 add-on store में यही <code>extension.json</code> सीधे चलेगा।
+      </div>
+
+      <h3>Live check — आपका फोन सही दिखा रहा है?</h3>
+      <div class="hint">
+        नीचे वाला Gondi text यदि boxes नहीं, बल्कि गोंडी अक्षरों में दिखे → font OK:<br>
+        <span class="gondi" style="font-size:1.6rem;letter-spacing:.04em">𑴤𑴫𑴦𑴱𑴤 𑴎𑴽𑵀𑴘𑴳 · 𑴟𑴤𑴫𑵅𑴛𑴺 𑴣𑴱𑴦𑴛 · 𑴮𑴺𑴰</span><br>
+        <span style="font-size:.84rem">मसराम गोंडी · नमस्ते भारत · क्षेत्र</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>75 Keys का नक्शा</h2>
+      <p class="hint">पूरा character set — <code>florisboard/characters_75.json</code> से auto-generated। वेब converter के “कुंजी · ७५” tab में भी यही live keyboard है। नीचे preview running है।</p>
+      <div class="grid2">
+        <div>
+          <h3>स्वर · 10</h3>
+          <table class="map">
+            <tr><th>देवनागरी</th><th>गोंडी</th><th>U+11Dxx</th></tr>
+            <tr><td>अ</td><td class="gondi">𑴀</td><td>11D00</td></tr>
+            <tr><td>आ</td><td class="gondi">𑴁</td><td>11D01</td></tr>
+            <tr><td>इ</td><td class="gondi">𑴂</td><td>11D02</td></tr>
+            <tr><td>ई</td><td class="gondi">𑴃</td><td>11D03</td></tr>
+            <tr><td>उ</td><td class="gondi">𑴄</td><td>11D04</td></tr>
+            <tr><td>ऊ</td><td class="gondi">𑴅</td><td>11D05</td></tr>
+            <tr><td>ए</td><td class="gondi">𑴆</td><td>11D06</td></tr>
+            <tr><td>ऐ</td><td class="gondi">𑴈</td><td>11D08</td></tr>
+            <tr><td>ओ</td><td class="gondi">𑴉</td><td>11D09</td></tr>
+            <tr><td>औ</td><td class="gondi">𑴋</td><td>11D0B</td></tr>
+          </table>
+        </div>
+        <div>
+          <h3>मात्रा / चिह्न</h3>
+          <table class="map">
+            <tr><th>देवनागरी</th><th>गोंडी</th><th>code</th></tr>
+            <tr><td>ा</td><td class="gondi">𑴱</td><td>11D31</td></tr>
+            <tr><td>ि</td><td class="gondi">𑴲</td><td>11D32</td></tr>
+            <tr><td>ी</td><td class="gondi">𑴳</td><td>11D33</td></tr>
+            <tr><td>े</td><td class="gondi">𑴺</td><td>11D3A</td></tr>
+            <tr><td>ै</td><td class="gondi">𑴼</td><td>11D3C</td></tr>
+            <tr><td>ो</td><td class="gondi">𑴽</td><td>11D3D</td></tr>
+            <tr><td>ौ</td><td class="gondi">𑴿</td><td>11D3F</td></tr>
+            <tr><td>ं</td><td class="gondi">𑵀</td><td>11D40</td></tr>
+          </table>
+        </div>
+      </div>
+      <p style="margin-top:10px"><a class="btn ghost" href="https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/blob/main/florisboard/characters_75.json" target="_blank">पूरा 75 JSON देखो</a> <a class="btn ghost" href="#optB" onclick="switchTab('B')">अब auto हिन्दी → गोंडी बनाना है →</a></p>
+    </div>
+  </section>
+
+  <!-- ===================== PANEL B ===================== -->
+  <section id="panel-B" class="panel">
+    <div class="card">
+      <h2>Option B — हिन्दी टाइप → ऑटो गोंडी <span class="badge">Developer · Kotlin IME</span></h2>
+      <p>User हिन्दी (देवनागरी) में टाइप करे, IME तुरंत मसराम गोंडी में बदल दे। इसके लिये repo में तैयार <code>DevanagariToMasaramGondi.kt</code> object है — बस अपने <code>InputMethodService</code> में drop-in करो।</p>
+
+      <div class="grid2">
+        <div class="hint">
+          <b>कब B चुनो?</b><br>
+          • तुम्हारे users को हिन्दी आती है, गोंडी सीखनी नहीं<br>• WhatsApp/Notes में “नमस्ते” टाइप करते ही <span class="gondi">𑴟𑴤𑴫𑵅𑴛𑴺</span> चाहिए<br>• खुद का keyboard APK बनाना है (Play Store publish)
+        </div>
+        <div class="hint">
+          <b>कब A चुनो?</b><br>
+          • Native Gondi typing सिखानी है<br>• बिना code, 5 मिनट में चाहिए<br>• HeliBoard/FlorisBoard ही काफी है
+        </div>
+      </div>
+
+      <h3>1 · File को project में डालो</h3>
+      <pre><code>// Project structure
+app/src/main/java/org/masaram/gondi/DevanagariToMasaramGondi.kt  ← यही file कॉपी करो
+app/src/main/assets/fonts/NotoSansMasaramGondi-Regular.ttf
+
+// app/build.gradle.kts में कुछ extra dependency नहीं चाहिए — pure Kotlin
+android {
+  // Font bundling — system font के भरोसे मत रहो
+}</code></pre>
+
+      <h3>2 · सबसे आसान — commit से पहले convert</h3>
+      <pre><code>import org.masaram.gondi.DevanagariToMasaramGondi
+
+class GondiInputMethod : InputMethodService() {
+    private val ic get() = currentInputConnection
+
+    fun onHindiCommitted(hindi: String) {
+        // “नमस्ते” → “𑴟𑴤𑴫𑵅𑴛𑴺”
+        val gondi = DevanagariToMasaramGondi.convert(hindi)
+        ic?.commitText(gondi, 1)
+    }
+
+    fun onWordFinished(hindiWord: String) {
+        // smart-ra ON is default — कर्म/क्रम सही
+        val gondi = DevanagariToMasaramGondi.convert(hindiWord, smartRa = true)
+        ic?.commitText(gondi, 1)
+    }
+}</code></pre>
+
+      <h3>3 · Live-replace — current word को Gondi में बदलो</h3>
+      <p class="hint">User ने पहले से “भारत” टाइप किया हो, cursor अंत में हो — back में scan करके आख़िरी देवनागरी शब्द को replace करो।</p>
+      <pre><code>fun onUpdateSelection(...) {
+    val before = ic?.getTextBeforeCursor(64, 0)?.toString() ?: return
+    val pair = DevanagariToMasaramGondi.convertLastWord(before) ?: return
+    val wordLen = before.length - pair.first
+    val converted = pair.second
+    // loop से बचो — यदि पहले से converted है तो दोबारा मत लिखो
+    if (before.substring(pair.first) == converted) return
+    ic?.deleteSurroundingText(wordLen, 0)
+    ic?.commitText(converted, 1)
+}
+
+// convertLastWord(before, cursor) returns Pair(startIndex, gondiWord)
+// isIndicRun = 0900..097F या 11D00..11D5F</code></pre>
+
+      <h3>4 · Halanta vs Virama — word-final case</h3>
+      <pre><code>// Virama 𑵅 (11D45) = conjunct former → हिन्दी में `्` जो conjunct बनाये
+// Halanta 𑵄 (11D44) = voter killer → शब्द-अंत पर बिना conjunct के vowel मारे
+DevanagariToMasaramGondi.convert("हिन्दी") // → 𑴬𑴲𑴟𑵅𑴝𑴳 (virama)
+
+// यदि trailing hal dead consonant चाहिए:
+DevanagariToMasaramGondi.convertWithFinalHalanta("हिन्द") // → ...𑵄 (halanta)</code></pre>
+
+      <h3>5 · Font bundling — boxes से बचो</h3>
+      <pre><code>// assets/fonts/NotoSansMasaramGondi-Regular.ttf रखो
+// Keyboard view में typeface set करो:
+val tf = Typeface.createFromAsset(assets, "fonts/NotoSansMasaramGondi-Regular.ttf")
+keyView.typeface = tf
+candidateView.typeface = tf
+
+// WebView / composing preview में CSS:
+// @font-face { font-family:'Gondi'; src:url('fonts/NotoSansMasaramGondi-Regular.ttf'); }
+// .gondi { font-family:'Gondi'; }</code></pre>
+
+      <h3>6 · क्या-क्या handle होता है</h3>
+      <table class="map">
+        <tr><th>Hindi</th><th>Rule</th><th>Gondi</th><th>code</th></tr>
+        <tr><td>र् + C (कर्म)</td><td>→ Repha</td><td class="gondi">𑴌𑵆𑴤</td><td>11D46</td></tr>
+        <tr><td>C + ्र (क्रम)</td><td>→ Ra-kara</td><td class="gondi">𑴌𑵇𑴤</td><td>11D47</td></tr>
+        <tr><td>क्ष ज्ञ त्र</td><td>precomposed</td><td class="gondi">𑴮 𑴯 𑴰</td><td>11D2E–30</td></tr>
+        <tr><td>क़ ख़ ग़ ज़ ड़ ढ़ फ़ य़</td><td>nukta</td><td class="gondi">𑴌𑵂 etc</td><td>11D42</td></tr>
+        <tr><td>ऑ</td><td>O + candra</td><td class="gondi">𑴉𑵃</td><td>11D09+11D43</td></tr>
+        <tr><td>०–९</td><td>digits</td><td class="gondi">𑵐–𑵙</td><td>11D50–59</td></tr>
+      </table>
+
+      <h3>7 · Minimal Android Studio project बनाओ</h3>
+      <pre><code>Android Studio → New Project → Empty Activity (Kotlin)
+1) copy converter/kotlin/DevanagariToMasaramGondi.kt → app/src/main/java/org/masaram/gondi/
+2) res/xml/method.xml बनाओ (InputMethodService meta)
+3) AndroidManifest में &lt;service android:name=".GondiInputMethod" android:permission="android.permission.BIND_INPUT_METHOD"&gt;
+4) assets/fonts/NotoSansMasaramGondi-Regular.ttf
+5) Build → APK
+
+// जाँच:
+adb install app-debug.apk
+// फिर Settings → Languages & input → Gondi IME enable</code></pre>
+
+      <p class="hint"><b>TextWatcher वाला shortcut (बिना IME):</b> किसी भी <code>EditText</code> में <code>addTextChangedListener</code> लगा के <code>afterTextChanged { convertLastWord() }</code> से उसी activity में हिन्दी→गोंडी कर सकते हो — Play Store publish किये बिना test के लिये fastest।</p>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <a class="btn primary" href="https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/blob/main/converter/kotlin/DevanagariToMasaramGondi.kt" target="_blank">Kotlin file देखो</a>
+        <a class="btn ghost" href="https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/blob/main/converter/python/devanagari_to_masaram_gondi.py" target="_blank">Python reference</a>
+        <a class="btn ghost" href="https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/blob/main/converter/mapping.json" target="_blank">mapping.json</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Test cases — तुम्हारा converter सही है?</h2>
+      <pre><code>python3 converter/python/devanagari_to_masaram_gondi.py --test
+// ALL PASSED
+
+मसराम  → 𑴤𑴫𑴦𑴱𑴤
+गोंडी   → 𑴎𑴽𑵀𑴘𑴳
+नमस्ते  → 𑴟𑴤𑴫𑵅𑴛𑴺   (स् + त = virama 𑵅)
+भारत   → 𑴣𑴱𑴦𑴛
+हिन्दी  → 𑴬𑴲𑴟𑵅𑴝𑴳
+जय हिन्द → 𑴓𑴥 𑴬𑴲𑴟𑵅𑴝
+क्षेत्र  → 𑴮𑴺𑴰
+कर्म   → 𑴌𑵆𑴤  (Repha)
+क्रम   → 𑴌𑵇𑴤  (Ra-kara)</code></pre>
+      <p class="hint">Kotlin/Python/JS तीनों same mapping.json वही logic share करते हैं — इसलिए web पर जो दिखे वही phone पर भी।</p>
+    </div>
+  </section>
+
+  <!-- ===================== FONT & TROUBLESHOOT ===================== -->
+  <section id="font" class="card">
+    <h2>फ़ॉन्ट — सबसे ज़रूरी</h2>
+    <div class="grid2">
+      <div>
+        <h3>Android पर Noto Sans Masaram Gondi लगाना</h3>
+        <ol>
+          <li>TTF डाउनलोड करो → File Manager में खोलो → <b>Install</b></li>
+          <li>कुछ फोन पर <em>Settings → Display → Font style → Download</em> में TTF add करना पड़ता है</li>
+          <li>Samsung/Xiaomi पर “zFont 3” या “Font Installer” app से custom TTF install कर सकते हो (root नहीं चाहिए)</li>
+          <li>सबसे reliable — App/APK में font bundle करो (Option B का step 5)</li>
+          <li>Web converter में font पहले से bundled है — <code>web/fonts/NotoSansMasaramGondi-Regular.ttf</code> (OFL 1.1)</li>
+        </ol>
+      </div>
+      <div>
+        <h3>लाइसेंस</h3>
+        <p class="hint">Code: <b>MIT</b> — कुछ भी कर सकते हो, credit दो बस।<br>Font: <b>SIL OFL 1.1</b> — free embed, modify, distribute। <br>Bina font के □ दिखेंगे — ये bug नहीं।</p>
+        <h3 style="margin-top:12px">Dictionary + Web</h3>
+        <p class="hint">108 शब्द — हर entry में <code>hindi_gondi</code> (लिप्यंतरण पानी→𑴠𑴱𑴟𑴳) और <code>gondi_masaram</code> (भाषा शब्द पानी=ईर→𑴃𑴦)। Gondi की बोलियाँ अलग — ये प्रचलित रूप हैं, official standard नहीं। Web पर <em>शब्दकोश</em> tab में search है।</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="troubleshoot" class="card">
+    <h2>समस्या हल · Troubleshooting</h2>
+    <div class="grid2">
+      <div>
+        <h3>□□□ दिख रहे हैं?</h3>
+        <p class="warn">Font install नहीं / Keyboard ने custom font load नहीं किया। TTF reinstall करो या App में bundle करो। Web पर सही दिखे तो converter सही है।</p>
+        <h3>HeliBoard import fail?</h3>
+        <ul>
+          <li>ZIP नहीं तो JSON सीधा paste करो (Custom layout → Paste JSON)</li>
+          <li>पुराना HeliBoard हो तो update करो — JSON schema बदला है</li>
+          <li>FlorisBoard v0.4 पर direct import नहीं — HeliBoard use करो या source build</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Repha / Ra-kara गलत?</h3>
+        <p><code>smart_ra = true</code> default है। OFF करने पर <code>कर्म = 𑴌𑴦𑵅𑴤</code> (गलत) vs ON पर <code>𑴌𑵆𑴤</code> (Unicode-correct)। हमेशा ON रखो।</p>
+        <h3>Virama vs Halanta confusion?</h3>
+        <p>Virama 𑵅 conjunct बनाता है (स्त), Halanta 𑵄 सिर्फ़ vowel मारता है। Word-final के लिये <code>convertWithFinalHalanta()</code> use करो।</p>
+        <h3>Live web कहाँ है?</h3>
+        <p>Repo का live site: <code>https://saiyyamdeveloper.github.io/Hindi-Masaram-Gondi-Script-Converter/</code> या <code>aimanage750.github.io/masaram-gondi</code> — GitHub Pages (Actions) source। यह workspace में भी running है — नीचे preview देखो।</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <a class="btn primary" href="https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter" target="_blank">GitHub Repo</a>
+      <a class="btn ghost" href="index.html" target="_blank">Web Converter खोलो</a>
+      <a class="btn ghost" href="https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/blob/main/dictionary/gondi_hindi_dictionary.json" target="_blank">Dictionary JSON</a>
+    </div>
+  </section>
+
+  <footer style="text-align:center;color:var(--muted);font-size:.86rem;margin-top:18px">
+    <span class="gondi" style="font-size:1.2rem">𑴎𑴽𑵀𑴘𑴳 𑴤𑴫𑴦𑴱𑴤</span> · Munshi Mangal Singh Masaram 1918 · Unicode U+11D00–U+11D5F · 75 chars · MIT + OFL
+  </footer>
+</div>
+<script>
+function switchTab(which){
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active', b.dataset.tab===which));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+which));
+}
+document.querySelectorAll('.tabs button').forEach(b=>{
+  b.addEventListener('click',()=>switchTab(b.dataset.tab));
+});
+</script>
+</body>
+</html>
