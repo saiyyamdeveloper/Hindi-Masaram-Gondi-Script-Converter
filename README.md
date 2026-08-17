@@ -3,14 +3,19 @@
 ![Masaram Gondi Hindi Converter](masaram-gondi-converter.jpg)
 # देवनागरी → मसराम गोंडी
 
-[![Converter tests](https://github.com/aimanage750/masaram-gondi/actions/workflows/test.yml/badge.svg)](https://github.com/aimanage750/masaram-gondi/actions/workflows/test.yml)
-[![Pages](https://github.com/aimanage750/masaram-gondi/actions/workflows/pages.yml/badge.svg)](https://github.com/aimanage750/masaram-gondi/actions/workflows/pages.yml)
+[![Converter tests](https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/actions/workflows/test.yml/badge.svg)](https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/actions/workflows/test.yml)
+[![Pages](https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/actions/workflows/pages.yml/badge.svg)](https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d4a017.svg)](LICENSE)
 
 Munshi Mangal Singh Masaram (1918) ki lipi. Unicode block **U+11D00–U+11D5F** — **75 characters**.
 
-**Live app:** [https://aimanage750.github.io/masaram-gondi/](https://aimanage750.github.io/masaram-gondi/)
-**Source:** [github.com/aimanage750/masaram-gondi](https://github.com/aimanage750/masaram-gondi)
+**Live app (Primary):** [https://saiyyamdeveloper.github.io/Hindi-Masaram-Gondi-Script-Converter/](https://saiyyamdeveloper.github.io/Hindi-Masaram-Gondi-Script-Converter/)
+**Mirror (old):** [https://aimanage750.github.io/masaram-gondi/](https://aimanage750.github.io/masaram-gondi/)
+
+**Source (Primary):** [github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter](https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter)
+**Mirror:** [github.com/aimanage750/masaram-gondi](https://github.com/aimanage750/masaram-gondi)
+
+> Username update: `aimanage750 → saiyyamdeveloper` — dono URLs active hain, primary ab `saiyyamdeveloper` hai.
 
 Hindi type karo — Masaram Gondi nikalta hai. Saath mein 75-key keyboard, FlorisBoard/HeliBoard layouts, Kotlin IME converter, aur Hindi–Gondi dictionary.
 
@@ -55,22 +60,30 @@ python3 -m http.server 8765 --directory web --bind 127.0.0.1
 
 ## GitHub Pages
 
-Repo: [aimanage750/masaram-gondi](https://github.com/aimanage750/masaram-gondi)
+**Primary repo:** [saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter](https://github.com/saiyyamdeveloper/Hindi-Masaram-Gondi-Script-Converter)
 
 **Settings → Pages → Source: GitHub Actions**. Site:
 
-`https://aimanage750.github.io/masaram-gondi/`
+`https://saiyyamdeveloper.github.io/Hindi-Masaram-Gondi-Script-Converter/`
+
+**Mirror repo:** [aimanage750/masaram-gondi](https://github.com/aimanage750/masaram-gondi) → `https://aimanage750.github.io/masaram-gondi/`
+
+Dono options active hain — primary `saiyyamdeveloper` hai.
 
 ## Android
 
-**Direct Gondi type:** `florisboard/layouts/characters/masaram_gondi.json` HeliBoard me import karo. Phone pe **Noto Sans Masaram Gondi** install karo.
+### Option A — Direct Gondi type (No-code, HeliBoard)
+`florisboard/layouts/characters/masaram_gondi.json` HeliBoard me import karo. Phone pe **Noto Sans Masaram Gondi** install karo.
 
-**Hindi type → Gondi:** `converter/kotlin/DevanagariToMasaramGondi.kt`
+### Option B — Hindi type → Gondi (Kotlin IME, auto-convert)
+`converter/kotlin/DevanagariToMasaramGondi.kt`
 
 ```kotlin
 val gondi = DevanagariToMasaramGondi.convert(hindiTyped)
 ic.commitText(gondi, 1)
 ```
+
+> Dono options available hain — A: सीधे गोंडी keys (75 chars), B: हिन्दी टाइप → ऑटो गोंडी। Detail guide: `web/android-guide.html`
 
 ## Smart रा
 
